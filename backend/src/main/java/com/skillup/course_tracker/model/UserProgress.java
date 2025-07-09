@@ -20,7 +20,7 @@ public class UserProgress {
     private int progress; // should be between 0 and 100
     private String notes;
 
-    // Many UserProgress entries can be gitrelated to one Course
+    // Many UserProgress entries can be related to one Course
     @ManyToOne
     @JoinColumn(name = "course_id")
     private Course course;
