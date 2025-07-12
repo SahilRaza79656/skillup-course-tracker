@@ -1,12 +1,15 @@
 import React from 'react';
 import Navbar from './components/Navbar';
+import CourseList from './pages/CourseList';
+import AddCourse from './pages/AddCourse';
 
 function App() {
   return (
     <div className="container">
       <Navbar />
-      <h1>SkillUp - Course Tracker</h1>
-      <p>Welcome! Start adding and tracking your learning courses here.</p>
+      <AddCourse />
+      <hr />
+      <CourseList />
     </div>
   );
 }

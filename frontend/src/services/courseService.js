@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const BASE_URL = 'https://localhost:8090/api/courses';
+const BASE_URL = 'http://localhost:8090/api/courses';
 
 export const getCourses = () => axios.get(BASE_URL);
 
