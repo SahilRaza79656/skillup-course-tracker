@@ -2,6 +2,7 @@ import React from 'react';
 import Navbar from './components/Navbar';
 import CourseList from './pages/CourseList';
 import AddCourse from './pages/AddCourse';
+import ProgressList from './pages/ProgressList';
 
 function App() {
   return (
@@ -10,6 +11,8 @@ function App() {
       <AddCourse />
       <hr />
       <CourseList />
+      <hr />
+      <ProgressList />
     </div>
   );
 }
