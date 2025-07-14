@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { addCourse } from '../services/courseService'
 
-function AddCourse() {
+function AddCourse({onCourseAdded}) {
     const [formData, setFormData] = useState({
         name:'',
         platform:'',
@@ -22,6 +22,7 @@ function AddCourse() {
             await addCourse(formData);
             alert('Course added successfully!');
             setFormData({name:'', platform:'', url:'', description:''});
+            onCourseAdded(); // Refresh course list
         } catch (err) {
             alert('Error adding course');
         }

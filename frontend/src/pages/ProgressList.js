@@ -1,29 +1,29 @@
 import React, {useEffect, useState} from "react";
 import { getProgress, updateProgress } from "../services/progressService";
 
-function ProgressList (){
-    const [progressData, setProgressData] = useState([]);
+function ProgressList ({ progressData, onProgressAdded, loadingProgress }){
+    // const [progressData, setProgressData] = useState([]);
     const [filter, setFilter] = useState('all');
-    const [loading, setLoading] = useState(true);
+    // const [loading, setLoading] = useState(true);
 
-    useEffect(() => {
-        loadProgress();
-    }, []);
+    // useEffect(() => {
+    //     loadProgress();
+    // }, []);
 
-    const loadProgress = () => {
-        getProgress()
-        .then(response => setProgressData(response.data))
-        .catch(error => console.error('Error loading progress'))
-        .finally(() => setLoading(false));
-    }
+    // const loadProgress = () => {
+    //     getProgress()
+    //     .then(response => setProgressData(response.data))
+    //     .catch(error => console.error('Error loading progress'))
+    //     .finally(() => setLoading(false));
+    // }
 
-    if(loading) return <div className="text-center">Loading...</div>
+    if(loadingProgress) return <div className="text-center">Loading...</div>
 
     const handleUpdate = (id, updatedValue) => {
         updateProgress(id, updatedValue)
         .then(() => {
             alert("Progress updated");
-            loadProgress();
+            onProgressAdded();
         })
         .catch(() => alert("Error updating progress"))
     }
