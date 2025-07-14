@@ -24,4 +24,8 @@ public class UserProgress {
     @ManyToOne
     @JoinColumn(name = "course_id")
     private Course course;
+
+    public boolean isCompleted() {
+        return this.progress == 100;
+    }
 }

@@ -12,6 +12,7 @@ import java.util.List;
 @RestController
 @RequestMapping("api/user-progress")
 @RequiredArgsConstructor
+@CrossOrigin(origins = "http://localhost:3000")
 public class UserProgressController {
 
     private final UserProgressService service;
@@ -26,7 +27,7 @@ public class UserProgressController {
         return ResponseEntity.ok(service.getAll());
     }
 
-    @PostMapping("/{id}")
+    @PutMapping("/{id}")
     public ResponseEntity<UserProgress> update(@PathVariable Long id, @RequestBody UserProgressDTO dto){
         return ResponseEntity.ok(service.update(id, dto));
     }
