@@ -4,6 +4,7 @@ import { getProgress, updateProgress } from "../services/progressService";
 function ProgressList (){
     const [progressData, setProgressData] = useState([]);
     const [filter, setFilter] = useState('all');
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         loadProgress();
@@ -12,8 +13,11 @@ function ProgressList (){
     const loadProgress = () => {
         getProgress()
         .then(response => setProgressData(response.data))
-        .catch(error => console.error('Error loading progress'));
+        .catch(error => console.error('Error loading progress'))
+        .finally(() => setLoading(false));
     }
+
+    if(loading) return <div className="text-center">Loading...</div>
 
     const handleUpdate = (id, updatedValue) => {
         updateProgress(id, updatedValue)
@@ -42,7 +46,7 @@ function ProgressList (){
                 </select>
             </div>
 
-            {filteredProgress.length === 0} ? (
+            {filteredProgress.length === 0 ? (
                 <p>No progress data found.</p>
             ) : (
                 <div className="list-group">
@@ -78,7 +82,7 @@ function ProgressList (){
                         </div>
                     ))}
                 </div>
-            )
+            )}
         </div>
     );
 }

@@ -3,12 +3,16 @@ import { getCourses } from '../services/courseService';
 
 function CourseList (){
     const [courses, setCourses] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         getCourses()
         .then(response => setCourses(response.data))
-        .catch(error => console.error('Error fetching courses', error));
+        .catch(error => console.error('Error fetching courses', error))
+        .finally(() => setLoading(false));
     }, []);
+
+    if(loading) return <div className='text-center'>Loading...</div>
 
     return (
         <div>
