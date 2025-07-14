@@ -36,7 +36,7 @@ function App() {
   }, []);
 
   return (
-    <div className="container">
+    <div className="container-fluid px-4">
       <Navbar />
       <AddCourse onCourseAdded={loadCourses} />
       <hr />
