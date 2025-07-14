@@ -38,13 +38,21 @@ function App() {
   return (
     <div className="container-fluid px-4">
       <Navbar />
+      <div className='section'>
       <AddCourse onCourseAdded={loadCourses} />
+      </div>
       <hr />
+      <div className='section'>
       <CourseList courses={courses} loading={loading}/>
+      </div>
       <hr />
+      <div className='section'>
       <AddProgress courses={courses} onProgressAdded={loadProgress} />
+      </div>
       <hr />
+      <div className='section'>
       <ProgressList progressData={progressData} onProgressAdded={loadProgress} loadingProgress={loadingProgress}/>
+      </div>
       <Footer />
     </div>
   );

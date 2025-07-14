@@ -1,0 +1,46 @@
+body {
+    background-color: #f8f9fa;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.section {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 32px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.section h2 {
+    border-left: 4px solid #5C6BC0;
+    padding-left: 12px;
+    color: #5C6BC0;
+    margin-bottom: 20px;
+}
+
+.progress-bar {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.custom-navbar {
+    background-color: #5C6BC0;
+    padding: 16px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.custom-navbar .navbar-brand {
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.btn-primary {
+    background-color: #5C6BC0;
+    border-color: #5C6BC0;
+}
+
+.btn-primary:hover {
+    background-color: #3F51B5;
+    border-color: #3F51B5;
+}
