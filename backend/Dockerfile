@@ -7,6 +7,9 @@ WORKDIR /app
 # Copy project files
 COPY . .
 
+# Add this line to fix permission
+RUN chmod +x mvnw
+
 # Build the application (adjust if using Gradle)
 RUN ./mvnw clean package -DskipTests
 
