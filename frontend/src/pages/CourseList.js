@@ -1,5 +1,5 @@
-import React, {useEffect, useState} from 'react';
-import { getCourses } from '../services/courseService';
+import React /*, {useEffect, useState} */ from 'react';
+// import { getCourses } from '../services/courseService';
 
 function CourseList ({ courses, loading }){
     // const [courses, setCourses] = useState([]);

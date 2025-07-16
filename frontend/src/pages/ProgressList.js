@@ -1,5 +1,5 @@
-import React, {useEffect, useState} from "react";
-import { getProgress, updateProgress } from "../services/progressService";
+import React, {/*useEffect,*/ useState} from "react";
+import { /*getProgress,*/ updateProgress } from "../services/progressService";
 
 function ProgressList ({ progressData, onProgressAdded, loadingProgress }){
     // const [progressData, setProgressData] = useState([]);

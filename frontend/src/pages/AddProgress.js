@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { getCourses } from "../services/courseService";
+import React, { useState } from "react";
+// import { getCourses } from "../services/courseService";
 import { addProgress } from "../services/progressService";
 
 function AddProgress({ courses, onProgressAdded }) {
