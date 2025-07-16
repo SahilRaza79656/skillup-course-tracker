@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = 'http://localhost:8090/api/user-progress';
+const BASE_URL = 'https://skillup-api.onrender.com/api/user-progress';
 
 export const getProgress = () => axios.get(BASE_URL);
 
