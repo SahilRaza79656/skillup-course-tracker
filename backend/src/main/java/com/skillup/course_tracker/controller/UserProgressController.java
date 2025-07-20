@@ -5,6 +5,7 @@ import com.skillup.course_tracker.model.UserProgress;
 import com.skillup.course_tracker.service.UserProgressService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -18,8 +19,8 @@ public class UserProgressController {
     private final UserProgressService service;
 
     @PostMapping
-    public ResponseEntity<UserProgress> create(@RequestBody UserProgressDTO dto){
-        return ResponseEntity.ok(service.create(dto));
+    public ResponseEntity<UserProgress> create(@RequestBody UserProgressDTO dto, Authentication authentication){
+        return ResponseEntity.ok(service.create(dto, authentication));
     }
 
     @GetMapping
@@ -30,5 +31,10 @@ public class UserProgressController {
     @PutMapping("/{id}")
     public ResponseEntity<UserProgress> update(@PathVariable Long id, @RequestBody UserProgressDTO dto){
         return ResponseEntity.ok(service.update(id, dto));
+    }
+
+    @GetMapping("/by-user")
+    public ResponseEntity<List<UserProgress>> getProgressForLoggedInUser(Authentication authentication){
+        return ResponseEntity.ok(service.getProgressForLoggedInUser(authentication));
     }
 }
