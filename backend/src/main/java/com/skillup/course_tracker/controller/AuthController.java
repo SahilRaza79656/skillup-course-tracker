@@ -5,14 +5,12 @@ import com.skillup.course_tracker.dto.AuthResponse;
 import com.skillup.course_tracker.service.AuthService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/auth")
 @RequiredArgsConstructor
+@CrossOrigin(origins = "http://localhost:3000")
 public class AuthController {
 
     private final AuthService authService;
@@ -25,7 +23,7 @@ public class AuthController {
 
     @PostMapping("/login")
     public ResponseEntity<AuthResponse> login(@RequestBody AuthRequest request){
-        String token = authService.login(request);
-        return ResponseEntity.ok(new AuthResponse(token));
+        AuthResponse authResponse = authService.login(request);
+        return ResponseEntity.ok(authResponse);
     }
 }

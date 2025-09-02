@@ -1,6 +1,8 @@
 package com.skillup.course_tracker.service;
 
 import com.skillup.course_tracker.dto.AuthRequest;
+import com.skillup.course_tracker.dto.AuthResponse;
+import com.skillup.course_tracker.dto.UserDTO;
 import com.skillup.course_tracker.model.User;
 import com.skillup.course_tracker.repository.UserRepository;
 import com.skillup.course_tracker.security.JwtUtil;
@@ -30,7 +32,7 @@ public class AuthService {
         userRepository.save(user);
     }
 
-    public String login(AuthRequest request){
+    public AuthResponse login(AuthRequest request){
         User user = userRepository.findByEmail(request.getEmail())
                 .orElseThrow(() -> new RuntimeException("User not found"));
 
@@ -40,7 +42,8 @@ public class AuthService {
         UserDetails userDetails = new org.springframework.security.core.userdetails.User(
                 user.getEmail(), user.getPassword(), List.of(new SimpleGrantedAuthority("ROLE_USER"))
         );
+        String token = jwtUtil.generateToken(userDetails);
 
-        return jwtUtil.generateToken(userDetails);
+        return new AuthResponse(token, new UserDTO(user));
     }
 }
