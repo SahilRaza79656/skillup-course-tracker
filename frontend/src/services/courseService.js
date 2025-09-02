@@ -1,7 +1,8 @@
 import axios from 'axios';
+import axiosInstance from '../api/axiosInstance';
 
 const BASE_URL = 'http://localhost:8090/api/courses';
 
-export const getCourses = () => axios.get(BASE_URL);
+export const getCourses = () => axiosInstance.get('/api/courses/by-user');
 
-export const addCourse = (course) => axios.post(BASE_URL, course);
+export const addCourse = (course) => axiosInstance.post('/api/courses', course);
